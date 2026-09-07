@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: hearthline-house-price-predictor
+    runtime: python
+    buildCommand: ""
+    startCommand: "python backend/app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

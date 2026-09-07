@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearthline | House price intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Hearthline home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>hearthline</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation"><a class="active" href="#estimate">Estimate</a><a href="#method">Our method</a></nav>
+      <div class="status"><span class="status-dot"></span> Live model <span class="status-divider"></span> v1.0</div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="eyebrow">Property intelligence </p>
+        <h1>Know what<br><em>home</em> is worth.</h1>
+        <p class="intro-copy">A considered estimate for your next move, built from the details that make a house more than a set of numbers.</p>
+        <div class="intro-meta"><span><strong>84%</strong> model confidence</span><span><strong>6</strong> property signals</span><span><strong>&lt; 1 min</strong> to complete</span></div>
+      </section>
+
+      <section id="estimate" class="workspace" aria-label="Property valuation workspace">
+        <form id="prediction-form" class="form-panel">
+          <div class="panel-heading">
+            <div><span class="step-number">01</span><h2>Tell us about it</h2></div>
+            <span class="panel-label">Property profile</span>
+          </div>
+
+          <div class="field-group full-width">
+            <label for="area">Interior area <span>required / sq ft</span></label>
+            <div class="input-wrap"><input id="area" name="area" type="number" min="300" max="20000" value="1850" required><span>sq ft</span></div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-group">
+              <label for="bedrooms">Bedrooms</label>
+              <div class="stepper"><button type="button" data-step="bedrooms" data-change="-1" aria-label="Remove bedroom">−</button><input id="bedrooms" name="bedrooms" type="number" min="1" max="12" value="3" required><button type="button" data-step="bedrooms" data-change="1" aria-label="Add bedroom">+</button></div>
+            </div>
+            <div class="field-group">
+              <label for="bathrooms">Bathrooms</label>
+              <div class="stepper"><button type="button" data-step="bathrooms" data-change="-1" aria-label="Remove bathroom">−</button><input id="bathrooms" name="bathrooms" type="number" min="1" max="12" step="0.5" value="2.5" required><button type="button" data-step="bathrooms" data-change="1" aria-label="Add bathroom">+</button></div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="age">Property age <span>required / years</span></label>
+            <input id="age" name="age" type="number" min="0" max="150" value="12" required>
+          </div>
+
+          <fieldset class="field-group choice-group"><legend>Location</legend><div class="choices"><label><input type="radio" name="location" value="urban"><span>Urban</span></label><label><input type="radio" name="location" value="suburban" checked><span>Suburban</span></label><label><input type="radio" name="location" value="rural"><span>Rural</span></label></div></fieldset>
+          <fieldset class="field-group choice-group"><legend>Condition</legend><div class="choices"><label><input type="radio" name="condition" value="excellent"><span>Excellent</span></label><label><input type="radio" name="condition" value="good" checked><span>Good</span></label><label><input type="radio" name="condition" value="fair"><span>Fair</span></label></div></fieldset>
+
+          <button class="predict-button" type="submit"><span>Estimate value</span><span class="arrow">↗</span></button>
+          <p id="form-error" class="form-error" role="alert"></p>
+        </form>
+
+        <aside class="result-panel" aria-live="polite">
+          <div class="result-top"><span class="step-number">02</span><span class="panel-label">Your estimate</span></div>
+          <div id="result-empty" class="result-state"><span class="result-kicker">Estimated market value</span><div class="empty-value">$—</div><p>Complete the profile to see a considered estimate for this property.</p><div class="ghost-chart"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div id="result-ready" class="result-state hidden"><span class="result-kicker">Estimated market value</span><div id="prediction" class="prediction">$—</div><div class="range-line"><span>Likely range</span><strong id="range">$— – $—</strong></div><div class="confidence"><span>Model confidence</span><strong id="confidence-value">—</strong></div><div class="meter"><span id="confidence-meter"></span></div><div id="drivers" class="drivers"></div><p>Use this as a thoughtful starting point, not a formal appraisal.</p></div>
+          <div class="result-footer"><span>HEARTHLINE / INSIGHT</span><span id="model-name">Hearthline baseline v1</span></div>
+        </aside>
+      </section>
+      <section id="method" class="method-strip"><span class="eyebrow">The Hearthline method </span><p>We combine the signals that matter most at a glance: space, layout, location, age, and condition. The result is a clear starting point for a more informed conversation.</p><span class="method-mark">HL<span>+</span></span></section>
+    </main>
+    <footer><span>Private by design</span><span>Estimates are directional and for planning purposes.</span>© 2026 Hearthline | Developed By Pushpa C</footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
