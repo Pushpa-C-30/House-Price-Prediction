@@ -6,7 +6,7 @@ The project demonstrates how machine learning can be applied to a real-world pro
 
 ## 🌐 Live Demo
 
-Live Website : https://house-price-prediction-4-x1bk.onrender.com
+Live Website : https://house-price-prediction-7-4eaq.onrender.com
 
 Github Repository: https://github.com/Pushpa-C-30/House-Price-Prediction
 
