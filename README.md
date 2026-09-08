@@ -5,9 +5,10 @@ A machine learning-based web application that predicts house prices based on use
 ## 🌐 Live Demo
 
 Live Website : https://house-price-prediction-4-x1bk.onrender.com
-Live github repository: https://github.com/Pushpa-C-30/House-Price-Prediction
 
-## 📌 About the Project
+Live Github Repository: https://github.com/Pushpa-C-30/House-Price-Prediction
+
+##  About the Project
 
 House Price Prediction is a machine learning project developed to estimate the price of a house based on different property-related features.
 
@@ -15,12 +16,12 @@ The application provides a simple and user-friendly interface where users can en
 
 ## ✨ Features
 
-* 🏠 House price prediction
-* 📊 Machine learning-based prediction
-* 💻 Simple and responsive web interface
-* ⚡ Fast prediction through Flask API
-* 📱 User-friendly design
-* 🌐 Deployed online using Render
+*  House price prediction
+*  Machine learning-based prediction
+*  Simple and responsive web interface
+*  Fast prediction through Flask API
+*  User-friendly design
+*  Deployed online using Render
 
 ## 🛠️ Technologies Used
 
