@@ -34,12 +34,14 @@ form.addEventListener('submit', async (event) => {
     }
     if (!response.ok) throw new Error(result.error || 'Unable to calculate estimate.');
     const currency = typeof result.currency === 'string' && /^[A-Z]{3}$/i.test(result.currency) ? result.currency : 'USD';
-    const prediction = Number(result.prediction);
-    const rangeLow = Number(result.range_low);
-    const rangeHigh = Number(result.range_high);
-    const confidence = Number(result.confidence);
+    const prediction = parseNumericValue(result.prediction);
+    const rangeLow = parseNumericValue(result.range_low);
+    const rangeHigh = parseNumericValue(result.range_high);
+    const confidence = parseNumericValue(result.confidence);
     if (![prediction, rangeLow, rangeHigh, confidence].every(Number.isFinite)) {
-      throw new Error('Prediction service returned an invalid estimate.');
+      const missingFields = ['prediction', 'range_low', 'range_high', 'confidence']
+        .filter((field) => !Number.isFinite(parseNumericValue(result[field])));
+      throw new Error(`Prediction service returned an invalid estimate: ${missingFields.join(', ')}.`);
     }
     document.querySelector('#prediction').textContent = formatCurrency(prediction, currency);
     document.querySelector('#range').textContent = `${formatCurrency(rangeLow, currency)} – ${formatCurrency(rangeHigh, currency)}`;
@@ -55,4 +57,12 @@ form.addEventListener('submit', async (event) => {
 
 function formatCurrency(value, currency) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: 0 }).format(value);
+}
+
+function parseNumericValue(value) {
+  if (typeof value === 'number') return value;
+  if (typeof value !== 'string') return NaN;
+  const normalized = value.replace(/[$,%\s,]/g, '');
+  const number = Number(normalized);
+  return value.includes('%') && number > 1 ? number / 100 : number;
 }
