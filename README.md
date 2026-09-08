@@ -1,6 +1,6 @@
 # 🏠 House Price Prediction (Hearthline)
 
-House Price Prediction is a machine learning-based web application that predicts the estimated price of a house based on user-provided property details. The system uses number of bedrooms, number of bathrooms, area in square feet, and age of the property as input features.
+House Price Prediction module is a machine learning-based web application that predicts the estimated price of a house based on user-provided property details. The system uses number of bedrooms, number of bathrooms, area in square feet, and age of the property as input features.
 
 The project demonstrates how machine learning can be applied to a real-world problem by analyzing property characteristics and generating an estimated house price through a simple and user-friendly web interface. The project uses **Python, Flask, Pandas, NumPy, and Scikit-learn** for the backend and a simple **HTML, CSS, and JavaScript** frontend.
 
