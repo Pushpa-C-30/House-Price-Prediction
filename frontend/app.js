@@ -33,12 +33,18 @@ form.addEventListener('submit', async (event) => {
       throw new Error(`Prediction service returned an invalid response (${response.status}).`);
     }
     if (!response.ok) throw new Error(result.error || 'Unable to calculate estimate.');
-    const currency = result.currency || 'USD';
-    if (typeof result.prediction !== 'number') throw new Error('Prediction service returned an invalid estimate.');
-    document.querySelector('#prediction').textContent = formatCurrency(result.prediction, currency);
-    document.querySelector('#range').textContent = `${formatCurrency(result.range_low, currency)} – ${formatCurrency(result.range_high, currency)}`;
-    document.querySelector('#confidence-value').textContent = `${Math.round(result.confidence * 100)}%`;
-    document.querySelector('#confidence-meter').style.width = `${result.confidence * 100}%`;
+    const currency = typeof result.currency === 'string' && /^[A-Z]{3}$/i.test(result.currency) ? result.currency : 'USD';
+    const prediction = Number(result.prediction);
+    const rangeLow = Number(result.range_low);
+    const rangeHigh = Number(result.range_high);
+    const confidence = Number(result.confidence);
+    if (![prediction, rangeLow, rangeHigh, confidence].every(Number.isFinite)) {
+      throw new Error('Prediction service returned an invalid estimate.');
+    }
+    document.querySelector('#prediction').textContent = formatCurrency(prediction, currency);
+    document.querySelector('#range').textContent = `${formatCurrency(rangeLow, currency)} – ${formatCurrency(rangeHigh, currency)}`;
+    document.querySelector('#confidence-value').textContent = `${Math.round(confidence * 100)}%`;
+    document.querySelector('#confidence-meter').style.width = `${confidence * 100}%`;
     document.querySelector('#model-name').textContent = result.model;
     document.querySelector('#drivers').innerHTML = result.drivers.map((driver) => `<div class="driver"><span class="driver-label"><i class="driver-dot"></i>${driver.label}</span><strong class="driver-value">${driver.value}</strong></div>`).join('');
     emptyResult.classList.add('hidden');
