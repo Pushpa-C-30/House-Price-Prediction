@@ -1,4 +1,4 @@
-# 🏠 House Price Prediction
+# 🏠 House Price Prediction (Hearthline).
 
 A machine learning-based web application that predicts house prices based on user-provided property details. The project uses **Python, Flask, Pandas, NumPy, and Scikit-learn** for the backend and a simple **HTML, CSS, and JavaScript** frontend.
 
@@ -6,7 +6,7 @@ A machine learning-based web application that predicts house prices based on use
 
 Live Website : https://house-price-prediction-4-x1bk.onrender.com
 
-Live Github Repository: https://github.com/Pushpa-C-30/House-Price-Prediction
+Github Repository: https://github.com/Pushpa-C-30/House-Price-Prediction
 
 ##  About the Project
 
