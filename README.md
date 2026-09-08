@@ -73,7 +73,6 @@ House-Price-Prediction/
 
 The project is deployed using **GitHub and Render**.
 
-* Frontend → Render Static Site
 * Backend → Render Web Service
 * Source Code → GitHub
 
