@@ -3,6 +3,9 @@ const errorMessage = document.querySelector('#form-error');
 const emptyResult = document.querySelector('#result-empty');
 const readyResult = document.querySelector('#result-ready');
 const button = form.querySelector('.predict-button');
+const apiUrl = (!window.location.hostname || ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)) && window.location.port !== '8765'
+  ? 'http://127.0.0.1:8765/api/predict'
+  : '/api/predict';
 
 document.querySelectorAll('[data-step]').forEach((control) => {
   control.addEventListener('click', () => {
@@ -21,7 +24,7 @@ form.addEventListener('submit', async (event) => {
   button.querySelector('span:first-child').textContent = 'Calculating...';
   const data = Object.fromEntries(new FormData(form));
   try {
-    const response = await fetch('/api/predict', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Unable to calculate estimate.');
     document.querySelector('#prediction').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: result.currency, maximumFractionDigits: 0 }).format(result.prediction);

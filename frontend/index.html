@@ -37,27 +37,27 @@
 
           <div class="field-group full-width">
             <label for="area">Interior area <span>required / sq ft</span></label>
-            <div class="input-wrap"><input id="area" name="area" type="number" min="300" max="20000" value="1850" required><span>sq ft</span></div>
+            <div class="input-wrap"><input id="area" name="area" type="number" min="300" max="20000" required><span>sq ft</span></div>
           </div>
 
           <div class="field-grid">
             <div class="field-group">
               <label for="bedrooms">Bedrooms</label>
-              <div class="stepper"><button type="button" data-step="bedrooms" data-change="-1" aria-label="Remove bedroom">−</button><input id="bedrooms" name="bedrooms" type="number" min="1" max="12" value="3" required><button type="button" data-step="bedrooms" data-change="1" aria-label="Add bedroom">+</button></div>
-            </div>
+              <div class="stepper"><button type="button" data-step="bedrooms" data-change="-1" aria-label="Remove bedroom">−</button><input id="bedrooms" name="bedrooms" type="number" min="1" max="12" required><button type="button" data-step="bedrooms" data-change="1" aria-label="Add bedroom">+</button></div>
+              </div>
             <div class="field-group">
               <label for="bathrooms">Bathrooms</label>
-              <div class="stepper"><button type="button" data-step="bathrooms" data-change="-1" aria-label="Remove bathroom">−</button><input id="bathrooms" name="bathrooms" type="number" min="1" max="12" step="0.5" value="2.5" required><button type="button" data-step="bathrooms" data-change="1" aria-label="Add bathroom">+</button></div>
-            </div>
+              <div class="stepper"><button type="button" data-step="bathrooms" data-change="-1" aria-label="Remove bathroom">−</button><input id="bathrooms" name="bathrooms" type="number" min="1" max="12" step="0.5" required><button type="button" data-step="bathrooms" data-change="1" aria-label="Add bathroom">+</button></div>
+              </div>
           </div>
 
           <div class="field-group">
             <label for="age">Property age <span>required / years</span></label>
-            <input id="age" name="age" type="number" min="0" max="150" value="12" required>
+            <input id="age" name="age" type="number" min="0" max="150" required>
           </div>
 
-          <fieldset class="field-group choice-group"><legend>Location</legend><div class="choices"><label><input type="radio" name="location" value="urban"><span>Urban</span></label><label><input type="radio" name="location" value="suburban" checked><span>Suburban</span></label><label><input type="radio" name="location" value="rural"><span>Rural</span></label></div></fieldset>
-          <fieldset class="field-group choice-group"><legend>Condition</legend><div class="choices"><label><input type="radio" name="condition" value="excellent"><span>Excellent</span></label><label><input type="radio" name="condition" value="good" checked><span>Good</span></label><label><input type="radio" name="condition" value="fair"><span>Fair</span></label></div></fieldset>
+          <fieldset class="field-group choice-group"><legend>Location</legend><div class="choices"><label><input type="radio" name="location" value="urban" required><span>Urban</span></label><label><input type="radio" name="location" value="suburban"><span>Suburban</span></label><label><input type="radio" name="location" value="rural"><span>Rural</span></label></div></fieldset>
+          <fieldset class="field-group choice-group"><legend>Condition</legend><div class="choices"><label><input type="radio" name="condition" value="excellent" required><span>Excellent</span></label><label><input type="radio" name="condition" value="good"><span>Good</span></label><label><input type="radio" name="condition" value="fair"><span>Fair</span></label></div></fieldset>
 
           <button class="predict-button" type="submit"><span>Estimate value</span><span class="arrow">↗</span></button>
           <p id="form-error" class="form-error" role="alert"></p>
