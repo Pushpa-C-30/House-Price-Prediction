@@ -2,10 +2,10 @@
 
 A machine learning-based web application that predicts house prices based on user-provided property details. The project uses **Python, Flask, Pandas, NumPy, and Scikit-learn** for the backend and a simple **HTML, CSS, and JavaScript** frontend.
 
-## 🌐 Live Website
+## 🌐 Live Demo
 
-**House Price Prediction:**
-https://house-price-prediction-4-x1bk.onrender.com
+Live Website : https://house-price-prediction-4-x1bk.onrender.com
+Live github repository: https://github.com/Pushpa-C-30/House-Price-Prediction
 
 ## 📌 About the Project
 
@@ -78,11 +78,9 @@ The project is deployed using **GitHub and Render**.
 
 The main objective of this project is to demonstrate how machine learning can be integrated with a web application to provide house price predictions through a simple user interface.
 
-## 👩‍💻 Developed By
-
-**Pushpa C**
-
 
 ## 📄 License
 
-This project is created for **educational and academic purposes**.
+This project is open-sourse and available under the MIT License.
+
+© 2026 Hearthline. Designed & Developed by Pushpa C.
