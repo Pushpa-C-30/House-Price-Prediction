@@ -1,33 +1,88 @@
-# Hearthline House Price Predictor
+# 🏠 House Price Prediction
 
-A professional full-stack house price prediction module with a Python backend and responsive browser frontend.
+A machine learning-based web application that predicts house prices based on user-provided property details. The project uses **Python, Flask, Pandas, NumPy, and Scikit-learn** for the backend and a simple **HTML, CSS, and JavaScript** frontend.
 
-Repository: `Pushpa-C-30/House-Price-Prediction`
+## 🌐 Live Website
 
-## Deploy the full app
+**House Price Prediction:**
+https://house-price-prediction-4-x1bk.onrender.com
 
-GitHub stores the source code. GitHub Pages can host static files, but it cannot run the Python prediction API, so deploy the complete app with Render:
+## 📌 About the Project
 
-1. Push this repository to GitHub as `House-Price-Prediction`.
-2. In Render, choose **New > Web Service** and connect the repository.
-3. Render will detect [`render.yaml`](render.yaml), or use `python backend/app.py` as the start command.
-4. Open the generated Render URL. The frontend and `/api/predict` endpoint run together.
+House Price Prediction is a machine learning project developed to estimate the price of a house based on different property-related features.
 
-The repository URL will be:
-`https://github.com/Pushpa-C-30/House-Price-Prediction`
+The application provides a simple and user-friendly interface where users can enter property details and receive a predicted house price.
 
-## Run it
+## ✨ Features
 
-From the project directory:
+* 🏠 House price prediction
+* 📊 Machine learning-based prediction
+* 💻 Simple and responsive web interface
+* ⚡ Fast prediction through Flask API
+* 📱 User-friendly design
+* 🌐 Deployed online using Render
 
-```powershell
-python backend/app.py
+## 🛠️ Technologies Used
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Backend
+
+* Python
+* Flask
+* Flask-CORS
+
+### Machine Learning
+
+* Pandas
+* NumPy
+* Scikit-learn
+
+### Deployment
+
+* GitHub
+* Render
+
+## 📂 Project Structure
+
+```text
+House-Price-Prediction/
+│
+├── backend/
+│   ├── app.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
+│
+├── .gitignore
+└── README.md
 ```
 
-Open [http://127.0.0.1:8765](http://127.0.0.1:8765) in a browser. Set `PORT` to use another port, for example `$env:PORT=9000; python backend/app.py`.
 
-## API
+## 🚀 Deployment
 
-`POST /api/predict` accepts `area`, `bedrooms`, `bathrooms`, `age`, `location` (`urban`, `suburban`, `rural`), and `condition` (`excellent`, `good`, `fair`). It returns an estimated USD value, likely range, confidence score, valuation drivers, and normalized inputs.
+The project is deployed using **GitHub and Render**.
 
-The current model is an intentionally transparent baseline formula rather than a trained production model. Replace `predict_price` in `backend/app.py` with a serialized regression model when training data is available.
+* Frontend → Render Static Site
+* Backend → Render Web Service
+* Source Code → GitHub
+
+## 🎯 Project Objective
+
+The main objective of this project is to demonstrate how machine learning can be integrated with a web application to provide house price predictions through a simple user interface.
+
+## 👩‍💻 Developed By
+
+**Pushpa C**
+
+
+## 📄 License
+
+This project is created for **educational and academic purposes**.
