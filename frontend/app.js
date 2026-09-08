@@ -33,8 +33,10 @@ form.addEventListener('submit', async (event) => {
       throw new Error(`Prediction service returned an invalid response (${response.status}).`);
     }
     if (!response.ok) throw new Error(result.error || 'Unable to calculate estimate.');
-    document.querySelector('#prediction').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: result.currency, maximumFractionDigits: 0 }).format(result.prediction);
-    document.querySelector('#range').textContent = `${formatCurrency(result.range_low, result.currency)} – ${formatCurrency(result.range_high, result.currency)}`;
+    const currency = result.currency || 'USD';
+    if (typeof result.prediction !== 'number') throw new Error('Prediction service returned an invalid estimate.');
+    document.querySelector('#prediction').textContent = formatCurrency(result.prediction, currency);
+    document.querySelector('#range').textContent = `${formatCurrency(result.range_low, currency)} – ${formatCurrency(result.range_high, currency)}`;
     document.querySelector('#confidence-value').textContent = `${Math.round(result.confidence * 100)}%`;
     document.querySelector('#confidence-meter').style.width = `${result.confidence * 100}%`;
     document.querySelector('#model-name').textContent = result.model;
