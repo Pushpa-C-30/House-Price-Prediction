@@ -25,7 +25,13 @@ form.addEventListener('submit', async (event) => {
   const data = Object.fromEntries(new FormData(form));
   try {
     const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-    const result = await response.json();
+    const responseText = await response.text();
+    let result;
+    try {
+      result = responseText ? JSON.parse(responseText) : {};
+    } catch {
+      throw new Error(`Prediction service returned an invalid response (${response.status}).`);
+    }
     if (!response.ok) throw new Error(result.error || 'Unable to calculate estimate.');
     document.querySelector('#prediction').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: result.currency, maximumFractionDigits: 0 }).format(result.prediction);
     document.querySelector('#range').textContent = `${formatCurrency(result.range_low, result.currency)} – ${formatCurrency(result.range_high, result.currency)}`;
